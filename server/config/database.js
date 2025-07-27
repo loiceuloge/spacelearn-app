@@ -10,10 +10,7 @@ const connectDB = async () => {
     // Clean the URI to remove potential formatting issues
     const cleanURI = process.env.MONGODB_URI.trim();
     
-    const conn = await mongoose.connect(cleanURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    const conn = await mongoose.connect(cleanURI);
     
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
