@@ -1,12 +1,9 @@
 [build]
-  # Directory to build from (relative to repo root)
-  base = "client"
-  
   # Build command
-  command = "npm run build"
+  command = "cd client && npm install && npm run build"
   
-  # Directory to publish (build output) - relative to base
-  publish = "dist"
+  # Directory to publish (build output) - relative to repo root
+  publish = "client/dist"
 
 [build.environment]
   # Node.js version
