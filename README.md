@@ -1,159 +1,204 @@
-# 📚 Application de Révision - Mémoire à Long Terme
+# 🧠 SpaceLearn - Long-Term Memory Learning App
 
-Une application de gestion des révisions utilisant la technique de répétition espacée pour optimiser l'apprentissage et développer la mémoire à long terme.
+A modern spaced repetition learning application designed to optimize long-term memory retention using scientifically-backed learning techniques.
 
-## 🎯 Objectif
+## 🎯 Purpose
 
-Cette application vous aide à organiser efficacement vos révisions en appliquant un système de répétition espacée. Elle calcule automatiquement les dates optimales de révision pour chaque élément appris, maximisant ainsi la rétention en mémoire à long terme.
+SpaceLearn helps you organize your study sessions efficiently by implementing a spaced repetition system. It automatically calculates optimal review dates for each learned item, maximizing long-term retention while minimizing study time.
 
-## ✨ Fonctionnalités
+## ✨ Features
 
-### 📝 Onglet 1 : Saisie des Items du Jour
-- **Enregistrement quotidien** : Ajoutez facilement les points que vous avez appris dans la journée
-- **Organisation par titres** : Chaque élément est représenté par un titre clair et descriptif
-- **Groupement par date** : Tous les items sont automatiquement associés à la date d'apprentissage
-- **Interface intuitive** : Saisie rapide et efficace des nouveaux éléments
+### 📝 Daily Item Input
+- **Daily Recording**: Easily add topics you've learned throughout the day
+- **Clear Organization**: Each item is represented by a descriptive title
+- **Date Grouping**: All items are automatically associated with their learning date
+- **Intuitive Interface**: Quick and efficient entry of new learning items
 
-### 🔄 Onglet 2 : Révisions du Jour
-- **Planning automatique** : Affichage des éléments à réviser selon le calendrier calculé
-- **Suivi des révisions** : Marquez les révisions comme effectuées
-- **Vue d'ensemble** : Visualisez votre charge de révision quotidienne
+### 🔄 Daily Reviews
+- **Automated Scheduling**: Display items to review according to calculated intervals
+- **Review Tracking**: Mark reviews as completed
+- **Daily Overview**: Visualize your daily review workload
+- **Progress Statistics**: Track your learning progress with visual charts
 
-## 🧠 Système de Répétition Espacée
+### 📊 Statistics Dashboard
+- **Learning Progress**: Visual representation of your learning journey
+- **Review Completion**: Track completed vs pending reviews
+- **Performance Metrics**: Monitor your retention and study consistency
 
-L'application utilise un algorithme de répétition espacée optimisé :
+## 🧠 Spaced Repetition System
+
+The application uses an optimized spaced repetition algorithm:
 
 ```
-Jour d'apprentissage (J) → Première révision (J+1) → Deuxième révision (J+3) → Troisième révision (J+7) → etc.
+Learning Day (D) → First Review (D+1) → Second Review (D+3) → Third Review (D+7) → etc.
 ```
 
-**Principe** : Les intervalles entre les révisions augmentent progressivement, renforçant la mémorisation à long terme tout en optimisant le temps d'étude.
+**Principle**: Review intervals progressively increase, strengthening long-term memorization while optimizing study time.
 
-## 🚀 Installation
+## 🚀 Live Demo
 
-### Prérequis
-- [Node.js](https://nodejs.org/) (version 14 ou supérieure)
-- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
-- [MongoDB](https://www.mongodb.com/) (installé localement ou accès à MongoDB Atlas)
+- **Frontend**: [https://spacelearn-app.netlify.app](https://spacelearn-app.netlify.app)
+- **Backend API**: [https://spacelearn-backend.onrender.com](https://spacelearn-backend.onrender.com)
 
-### Étapes d'installation
+## 🔧 Installation
 
-1. **Cloner le repository**
+### Prerequisites
+- [Node.js](https://nodejs.org/) (version 18 or higher)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [MongoDB](https://www.mongodb.com/) (local installation or MongoDB Atlas)
+
+### Setup Steps
+
+1. **Clone the repository**
    ```bash
-   git clone https://github.com/votre-username/revision-app.git
-   cd revision-app
+   git clone https://github.com/loiceuloge/spacelearn-app.git
+   cd spacelearn-app
    ```
 
-2. **Installer les dépendances du serveur**
+2. **Install server dependencies**
    ```bash
    cd server
    npm install
    ```
 
-3. **Installer les dépendances du client**
+3. **Install client dependencies**
    ```bash
    cd ../client
    npm install
    ```
 
-4. **Configuration de la base de données**
-   ```bash
-   # Créer le fichier .env à la racine du projet
-   echo "MONGODB_URI=mongodb://localhost:27017/revision-app" > ../.env
-   echo "PORT=5000" >> ../.env
-   ```
-
-5. **Lancer le serveur backend**
+4. **Environment Configuration**
+   Create a `.env` file in the `server/` directory:
    ```bash
    cd ../server
-   npm start
+   echo "MONGODB_URI=mongodb://localhost:27017/revision-app" > .env
+   echo "PORT=5001" >> .env
    ```
 
-6. **Lancer le client frontend** (dans un nouveau terminal)
+5. **Start the backend server**
    ```bash
-   cd client
    npm start
    ```
 
-7. **Accéder à l'application**
-   - Frontend : `http://localhost:3000`
-   - API Backend : `http://localhost:5000`
+6. **Start the frontend client** (in a new terminal)
+   ```bash
+   cd ../client
+   npm start
+   ```
 
-## 📱 Utilisation
+7. **Access the application**
+   - Frontend: `http://localhost:3000`
+   - Backend API: `http://localhost:5001`
 
-### Ajouter des éléments d'apprentissage
+## 📱 Usage Guide
 
-1. Rendez-vous sur l'onglet **"Items du Jour"**
-2. Saisissez le titre de l'élément appris
-3. Cliquez sur **"Ajouter"**
-4. L'application calcule automatiquement les dates de révision
+### Adding Learning Items
 
-### Effectuer vos révisions
+1. Navigate to the **"Daily Items"** tab
+2. Enter the title of what you learned
+3. Click **"Add Item"**
+4. The app automatically calculates review dates
 
-1. Consultez l'onglet **"Révisions du Jour"**
-2. Révisez chaque élément affiché
-3. Marquez les révisions comme terminées
-4. L'application programme automatiquement la prochaine révision
+### Performing Reviews
 
-## 🗂️ Structure du Projet
+1. Check the **"Reviews"** tab
+2. Review each displayed item
+3. Mark reviews as completed
+4. The app automatically schedules the next review
+
+### Tracking Progress
+
+1. Visit the **"Statistics"** tab
+2. Monitor your learning progress with visual charts
+3. Track completion rates and learning streaks
+
+## 🏗️ Project Structure
 
 ```
-revision-app/
-├── client/                    # Frontend React
+spacelearn-app/
+├── client/                     # React Frontend
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── ItemsInput.js      # Composant de saisie des items
-│   │   │   ├── ReviewsList.js     # Composant d'affichage des révisions
-│   │   │   └── Navigation.js      # Navigation entre onglets
+│   │   │   ├── ItemsInput.jsx      # Item input component
+│   │   │   ├── ReviewsList.jsx     # Reviews display component
+│   │   │   ├── Statistics.jsx      # Statistics dashboard
+│   │   │   └── Navigation.jsx      # Tab navigation
 │   │   ├── services/
-│   │   │   ├── api.js             # Appels API vers le backend
-│   │   │   └── spaceRepetition.js # Logique de répétition espacée
+│   │   │   ├── api.js              # API calls to backend
+│   │   │   └── spaceRepetition.js  # Spaced repetition logic
 │   │   ├── utils/
-│   │   │   └── dateHelpers.js     # Utilitaires de gestion des dates
-│   │   └── App.js                 # Composant principal
+│   │   │   └── dateHelpers.js      # Date manipulation utilities
+│   │   └── App.jsx                 # Main application component
 │   ├── public/
 │   └── package.json
-├── server/                    # Backend Express
+├── server/                     # Express Backend
 │   ├── controllers/
-│   │   ├── itemsController.js     # Logique métier des items
-│   │   └── reviewsController.js   # Logique métier des révisions
+│   │   ├── itemsController.js      # Items business logic
+│   │   └── reviewsController.js    # Reviews business logic
 │   ├── models/
-│   │   ├── Item.js                # Modèle MongoDB pour les items
-│   │   └── Review.js              # Modèle MongoDB pour les révisions
+│   │   ├── Item.js                 # MongoDB Item model
+│   │   └── Review.js               # MongoDB Review model
 │   ├── routes/
-│   │   ├── items.js               # Routes API pour les items
-│   │   └── reviews.js             # Routes API pour les révisions
+│   │   ├── items.js                # Items API routes
+│   │   └── reviews.js              # Reviews API routes
 │   ├── config/
-│   │   └── database.js            # Configuration MongoDB
+│   │   └── database.js             # MongoDB configuration
 │   ├── middleware/
-│   │   └── auth.js                # Middleware d'authentification
-│   ├── server.js                  # Point d'entrée du serveur
+│   │   └── auth.js                 # Authentication middleware
+│   ├── server.js                   # Server entry point
 │   └── package.json
-├── .env                       # Variables d'environnement
+├── netlify.toml                # Netlify deployment config
 └── README.md
 ```
 
-## 🛠️ Technologies Utilisées
+## 🛠️ Tech Stack
 
-- **Frontend** : React.js
-- **Backend** : Node.js + Express.js
-- **Base de données** : MongoDB
-- **Styling** : Tailwind CSS
-- **Build** : Create React App
+- **Frontend**: React.js + Vite
+- **Backend**: Node.js + Express.js
+- **Database**: MongoDB Atlas
+- **Styling**: Tailwind CSS
+- **Deployment**: Netlify (Frontend) + Render (Backend)
+- **Design**: Modern Glassmorphism UI
 
-## 📊 Algorithme de Répétition
+## 📊 Spaced Repetition Algorithm
 
-L'application implémente l'algorithme suivant :
+The application implements the following review schedule:
 
-| Révision | Intervalle | Description |
-|----------|------------|-------------|
-| 1ère | J+1 | Révision le lendemain |
-| 2ème | J+3 | Révision 3 jours après l'apprentissage |
-| 3ème | J+7 | Révision 1 semaine après |
-| 4ème | J+15 | Révision 2 semaines après |
-| 5ème | J+30 | Révision 1 mois après |
-| Suivantes | Intervalles croissants | Espacements progressifs |
+| Review # | Interval | Description |
+|----------|----------|-------------|
+| 1st | D+1 | Review next day |
+| 2nd | D+3 | Review 3 days after learning |
+| 3rd | D+7 | Review 1 week after |
+| 4th | D+15 | Review 2 weeks after |
+| 5th | D+30 | Review 1 month after |
+| 6th+ | Progressive intervals | Increasing spacing |
+
+## 🎨 Design Features
+
+- **Modern Glassmorphism**: Beautiful frosted glass effects
+- **Gradient Backgrounds**: Stunning color transitions
+- **Responsive Design**: Works perfectly on all devices
+- **Dark Mode Ready**: Optimized for various lighting conditions
+- **Smooth Animations**: Delightful user interactions
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Inspired by the Leitner system and modern spaced repetition research
+- Built with modern web technologies for optimal performance
+- Designed for learners who value efficiency and beautiful interfaces
 
 ---
 
-**Bonne révision ! 🎓**
+**Happy Learning! 🎓✨**
