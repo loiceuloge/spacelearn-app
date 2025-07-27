@@ -66,8 +66,8 @@ const ReviewsList = () => {
 
   if (loading) {
     return (
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200/50 p-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200/50 p-4 sm:p-8">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-indigo-500/5 rounded-2xl"></div>
           <div className="relative flex justify-center items-center py-12">
             <div className="flex items-center gap-3">
@@ -81,24 +81,24 @@ const ReviewsList = () => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-6">
-      <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200/50 p-8">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200/50 p-4 sm:p-8">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-indigo-500/5 rounded-2xl"></div>
         <div className="relative">
-          <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white text-2xl shadow-lg">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-4 sm:gap-0">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white text-lg sm:text-2xl shadow-lg">
                 🔄
               </div>
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              <h2 className="text-xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                 Révisions du jour
               </h2>
             </div>
             <button
               onClick={loadItemsDueToday}
-              className="px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-xl hover:from-blue-600 hover:to-indigo-700 transition-all duration-200 font-medium shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center gap-2"
+              className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-xl hover:from-blue-600 hover:to-indigo-700 transition-all duration-200 font-medium shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center gap-2 text-sm sm:text-base"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
               </svg>
               <span>Actualiser</span>
@@ -106,40 +106,40 @@ const ReviewsList = () => {
           </div>
 
           {error && (
-            <div className="bg-red-50/80 border border-red-200 rounded-xl p-4 mb-8">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center text-red-600">
+            <div className="bg-red-50/80 border border-red-200 rounded-xl p-3 sm:p-4 mb-6 sm:mb-8">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-red-100 rounded-lg flex items-center justify-center text-red-600 text-sm sm:text-base">
                   ⚠️
                 </div>
-                <p className="text-red-700 font-medium">{error}</p>
+                <p className="text-red-700 font-medium text-sm sm:text-base">{error}</p>
               </div>
             </div>
           )}
 
           {items.length === 0 ? (
-            <div className="text-center py-16">
-              <div className="w-24 h-24 bg-gradient-to-r from-emerald-100 to-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-4xl">🎉</span>
+            <div className="text-center py-12 sm:py-16 px-4">
+              <div className="w-16 h-16 sm:w-24 sm:h-24 bg-gradient-to-r from-emerald-100 to-teal-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <span className="text-2xl sm:text-4xl">🎉</span>
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-3">
+              <h3 className="text-lg sm:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">
                 Aucune révision prévue !
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
                 Vous êtes à jour avec vos révisions. Excellent travail !
               </p>
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-100 to-teal-100 rounded-xl text-emerald-700 font-medium">
+              <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-emerald-100 to-teal-100 rounded-xl text-emerald-700 font-medium text-sm sm:text-base">
                 <span>✨</span>
                 <span>Continuez comme ça !</span>
               </div>
             </div>
           ) : (
-            <div className="space-y-6">
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/50 rounded-xl p-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/50 rounded-xl p-3 sm:p-4">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold text-xs sm:text-sm">
                     {items.length}
                   </div>
-                  <p className="text-blue-800 font-semibold">
+                  <p className="text-blue-800 font-semibold text-sm sm:text-base">
                     {items.length} élément{items.length > 1 ? 's' : ''} à réviser aujourd'hui
                   </p>
                 </div>
@@ -148,21 +148,21 @@ const ReviewsList = () => {
               {items.map((item) => (
                 <div
                   key={item._id}
-                  className="group relative bg-white/70 border border-gray-200/50 rounded-xl p-6 hover:bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                  className="group relative bg-white/70 border border-gray-200/50 rounded-xl p-4 sm:p-6 hover:bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-indigo-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
                   <div className="relative">
-                    <div className="flex items-start justify-between mb-6">
+                    <div className="flex items-start justify-between mb-4 sm:mb-6">
                       <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center text-white text-sm font-bold">
+                        <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center text-white text-xs sm:text-sm font-bold">
                             {item.reviewCount + 1}
                           </div>
-                          <h3 className="text-xl font-bold text-gray-800 group-hover:text-gray-900">
+                          <h3 className="text-lg sm:text-xl font-bold text-gray-800 group-hover:text-gray-900">
                             {item.title}
                           </h3>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 text-xs sm:text-sm">
                           <div className="flex items-center gap-2 text-gray-600">
                             <span className="text-blue-500">📅</span>
                             <span>Créé le {formatDate(item.dateCreated)}</span>
@@ -178,21 +178,21 @@ const ReviewsList = () => {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                       <button
                         onClick={() => handleReview(item._id, true)}
-                        className="px-6 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-xl hover:from-emerald-600 hover:to-teal-700 transition-all duration-200 font-medium shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-3"
+                        className="px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-xl hover:from-emerald-600 hover:to-teal-700 transition-all duration-200 font-medium shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2 sm:gap-3 text-sm sm:text-base"
                       >
-                        <div className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center">
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded-lg flex items-center justify-center text-xs sm:text-sm">
                           ✅
                         </div>
                         <span>Je me souviens</span>
                       </button>
                       <button
                         onClick={() => handleReview(item._id, false)}
-                        className="px-6 py-4 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-xl hover:from-red-600 hover:to-pink-700 transition-all duration-200 font-medium shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-3"
+                        className="px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-xl hover:from-red-600 hover:to-pink-700 transition-all duration-200 font-medium shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2 sm:gap-3 text-sm sm:text-base"
                       >
-                        <div className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center">
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded-lg flex items-center justify-center text-xs sm:text-sm">
                           ❌
                         </div>
                         <span>À revoir</span>
