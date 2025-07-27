@@ -22,8 +22,9 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
-      <header className="relative bg-white/80 backdrop-blur-sm border-b border-gray-200/50 shadow-lg">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex flex-col">
+      {/* Mobile App Header */}
+      <header className="lg:block hidden relative bg-white/80 backdrop-blur-sm border-b border-gray-200/50 shadow-lg">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5"></div>
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
           <div className="text-center">
@@ -56,13 +57,37 @@ function App() {
         </div>
       </header>
 
-      <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
+      {/* Mobile Compact Header */}
+      <header className="lg:hidden bg-white/95 backdrop-blur-sm border-b border-gray-200/50 shadow-sm sticky top-0 z-30">
+        <div className="px-4 py-3">
+          <div className="flex items-center justify-center gap-2">
+            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-lg font-bold shadow-lg">
+              🧠
+            </div>
+            <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              SpaceLearn
+            </h1>
+          </div>
+        </div>
+      </header>
+
+      {/* Desktop Navigation */}
+      <div className="lg:block hidden">
+        <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
+      </div>
       
-      <main className="py-4 sm:py-8 lg:py-12">
+      {/* Main Content - Full height on mobile */}
+      <main className="flex-1 py-0 lg:py-8 pb-20 lg:pb-8">
         {renderActiveComponent()}
       </main>
 
-      <footer className="relative bg-white/80 backdrop-blur-sm border-t border-gray-200/50 mt-16">
+      {/* Mobile Bottom Navigation */}
+      <div className="lg:hidden">
+        <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
+      </div>
+
+      {/* Desktop Footer */}
+      <footer className="lg:block hidden relative bg-white/80 backdrop-blur-sm border-t border-gray-200/50 mt-16">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5"></div>
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
           <div className="text-center">

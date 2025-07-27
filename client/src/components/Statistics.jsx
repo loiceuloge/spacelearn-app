@@ -34,8 +34,138 @@ const Statistics = () => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6">
-      <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200/50 p-4 sm:p-8">
+    <div className="h-full lg:max-w-6xl lg:mx-auto p-0 lg:p-6">
+      {/* Mobile Layout */}
+      <div className="lg:hidden h-full flex flex-col">
+        <div className="p-4 bg-white border-b border-gray-100">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center text-white text-xl shadow-lg">
+                📈
+              </div>
+              <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Statistiques
+              </h2>
+            </div>
+            <button
+              onClick={loadStats}
+              className="p-3 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-xl hover:from-purple-600 hover:to-pink-700 transition-all duration-200 shadow-lg"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+            </button>
+          </div>
+
+          {error && (
+            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-xl">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center text-red-600 text-sm">
+                  ⚠️
+                </div>
+                <p className="text-red-700 font-medium text-sm">{error}</p>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Mobile Stats Content */}
+        <div className="flex-1 overflow-y-auto p-4">
+          {stats && (
+            <div className="space-y-6">
+              {/* Mobile Stats Grid */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-4 text-white shadow-lg">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold mb-1">{stats.totalReviews}</div>
+                    <div className="text-blue-100 text-xs font-medium">Total révisions</div>
+                    <div className="w-full bg-blue-400/30 rounded-full h-1.5 mt-2">
+                      <div className="bg-white h-1.5 rounded-full" style={{width: '100%'}}></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-4 text-white shadow-lg">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold mb-1">{stats.successfulReviews}</div>
+                    <div className="text-emerald-100 text-xs font-medium">Réussies</div>
+                    <div className="w-full bg-emerald-400/30 rounded-full h-1.5 mt-2">
+                      <div className="bg-white h-1.5 rounded-full" style={{width: stats.totalReviews > 0 ? `${(stats.successfulReviews / stats.totalReviews) * 100}%` : '0%'}}></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl p-4 text-white shadow-lg">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold mb-1">{stats.successRate}%</div>
+                    <div className="text-purple-100 text-xs font-medium">Taux réussite</div>
+                    <div className="w-full bg-purple-400/30 rounded-full h-1.5 mt-2">
+                      <div className="bg-white h-1.5 rounded-full" style={{width: `${stats.successRate}%`}}></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl p-4 text-white shadow-lg">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold mb-1">{stats.todayReviews}</div>
+                    <div className="text-orange-100 text-xs font-medium">Aujourd'hui</div>
+                    <div className="w-full bg-orange-400/30 rounded-full h-1.5 mt-2">
+                      <div className="bg-white h-1.5 rounded-full" style={{width: stats.todayReviews > 0 ? '100%' : '0%'}}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile Tips Section */}
+              <div className="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm">
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="text-lg">✨</span>
+                  <h3 className="font-bold text-gray-800 text-base">Conseils rapides</h3>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-2 p-3 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl">
+                    <div className="w-5 h-5 bg-emerald-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">✓</div>
+                    <span className="text-gray-700 text-sm">Révisez quotidiennement</span>
+                  </div>
+                  <div className="flex items-start gap-2 p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl">
+                    <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">✓</div>
+                    <span className="text-gray-700 text-sm">Soyez honnête sur votre niveau</span>
+                  </div>
+                  <div className="flex items-start gap-2 p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl">
+                    <div className="w-5 h-5 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">✓</div>
+                    <span className="text-gray-700 text-sm">La régularité est clé</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile Intervals */}
+              <div className="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm">
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="text-lg">⏰</span>
+                  <h3 className="font-bold text-gray-800 text-base">Intervalles</h3>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center p-2 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg">
+                    <span className="text-gray-700 text-sm">1ère révision:</span>
+                    <span className="font-bold text-blue-600 text-sm">J+1</span>
+                  </div>
+                  <div className="flex justify-between items-center p-2 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg">
+                    <span className="text-gray-700 text-sm">2ème révision:</span>
+                    <span className="font-bold text-emerald-600 text-sm">J+3</span>
+                  </div>
+                  <div className="flex justify-between items-center p-2 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg">
+                    <span className="text-gray-700 text-sm">3ème révision:</span>
+                    <span className="font-bold text-purple-600 text-sm">J+7</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Desktop Layout */}
+      <div className="hidden lg:block relative bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200/50 p-4 sm:p-8">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-2xl"></div>
         <div className="relative">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-4 sm:gap-0">
